@@ -51,10 +51,13 @@ worker_nodes:
     # Run workers on spot by default. Comment this out to use on-demand.
     InstanceMarketOptions:
         MarketType: spot
+
 # How Ray will authenticate with newly launched nodes.
 auth:
     ssh_user: ubuntu
 
+head_setup_commands:
+    - pip install boto3>=1.4.8
 
 setup_commands:
     - echo 'export PATH="$HOME/anaconda3/envs/tensorflow_p36/bin:$PATH"' >> ~/.bashrc
